@@ -1,0 +1,172 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #f3e66f;
+}
+.rectangles {
+  overflow: hidden;
+}
+
+.shape1 {
+  position: absolute;
+  width: 30vw;
+  height: 30vw;
+  background: rgb(37, 141, 167);
+  top: 5vw;
+  left: 1vw;
+  transform: translateX(-50%) rotate(5deg);
+  animation: moving1 1.5s ease-in 1 forwards;
+}
+
+.colorChange {
+  background-color: rgb(48, 187, 90);
+  animation: moving2 1.5s ease-in 1 forwards;
+}
+
+.shape2 {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  background: rgb(89, 0, 255);
+  top: 33vw;
+  left: 40vw;
+  transform: rotate(25deg);
+  border-radius: 30vw;
+}
+.colorChange2 {
+  background-color: rgb(94, 255, 0);
+}
+
+.shape3 {
+  position: absolute;
+  width: 36vw;
+  height: 10vw;
+  background: rgb(255, 0, 170);
+  top: 15vw;
+  right: 10vw;
+  transform: rotate(-14deg);
+  animation: moving3 1.5s ease-in 1 forwards;
+}
+
+.colorChange3 {
+  background-color: rgb(0, 195, 255);
+}
+
+.shape4 {
+  position: absolute;
+  width: 16vw;
+  height: 5vw;
+  background: gold;
+  top: 54vw;
+  left: 56%;
+  transform: rotate(20deg);
+}
+
+.shape5 {
+  position: absolute;
+  width: 34vw;
+  height: 3vw;
+  background: darkgreen;
+  top: 43vw;
+  left: 25%;
+  transform: rotate(-25deg);
+}
+
+.shape6 {
+  position: absolute;
+  width: 30vw;
+  height: 12vw;
+  background: rgb(182, 128, 128);
+  top: 20vw;
+  left: 50vw;
+  transform: rotate(10deg);
+}
+
+.shape7 {
+  position: absolute;
+  width: 40vw;
+  height: 3vw;
+  background: rgb(22, 187, 58);
+  top: 46vw;
+  left: 50%;
+  transform: rotate(-10deg);
+}
+
+.shape8 {
+  position: absolute;
+  width: 10vw;
+  height: 1vw;
+  background: black;
+  top: 62vw;
+  left: 50%;
+}
+
+.shape9 {
+  position: absolute;
+  width: 15vw;
+  height: 13vw;
+  background: rgb(0, 26, 255);
+  top: 60vw;
+  left: 20vw;
+  transform: rotate(-60deg);
+}
+
+.shape10 {
+  position: absolute;
+  width: 10vw;
+  height: 25vw;
+  background: rgb(85, 141, 102);
+  top: 40vw;
+  left: 15vw;
+  transform: rotate(-15deg);
+}
+
+.shape11 {
+  position: absolute;
+  width: 12vw;
+  height: 1vw;
+  background: red;
+  top: 12vw;
+  left: 70%;
+  transform: rotate(-15deg);
+}
+
+@keyframes moving1 {
+  0% {
+    top: 30vw;
+    left: 50%;
+    border-radius: 100%;
+  }
+  100% {
+    top: 10vw;
+    left: 50%;
+    border-radius: 0;
+  }
+}
+
+@keyframes moving2 {
+  0% {
+    top: 10vw;
+    left: 50%;
+    border-radius: 0;
+  }
+  100% {
+    top: 30vw;
+    left: 50%;
+    border-radius: 100%;
+  }
+}
+
+@keyframes moving3 {
+  0% {
+    top: 10vw;
+    left: 10vw;
+    border-radius: 5vw;
+  }
+  100% {
+    top: 40vw;
+    left: 10vw;
+    border-radius: 30vw;
+  }
+}
