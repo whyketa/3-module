@@ -2,13 +2,11 @@
 //окошко
 window.onload = function () {
   const startBtn = document.getElementById("openModal");
-  // Список всех ID окон в нужном порядке
   const windowIds = ["win-1", "win-2", "win-3", "win-4"];
   let currentStep = 0;
 
   if (startBtn) {
     startBtn.onclick = function () {
-      // 1. Проверяем, если дошли до конца списка — сбрасываем на начало
       if (currentStep >= windowIds.length) {
         currentStep = 0;
         console.log("Цикл завершен, начинаем заново с первого окна");
@@ -18,26 +16,20 @@ window.onload = function () {
       const win = document.getElementById(nextId);
 
       if (win) {
-        // 2. Принудительно ставим display: block, даже если окно было закрыто
         win.style.display = "block";
 
-        // 3. Выводим окно на передний план (увеличиваем z-index)
-        // Используем дату или счетчик, чтобы новое окно всегда было сверху
         win.style.zIndex = 1000 + currentStep + (new Date().getTime() % 100);
 
         console.log(
           `Открыто окно: ${nextId}. Шаг: ${currentStep + 1} из ${windowIds.length}`,
         );
 
-        // Переходим к следующему индексу
         currentStep++;
       }
     };
   }
 
-  // Обработчик закрытия (остается прежним)
   document.addEventListener("click", (e) => {
-    // Проверяем клик по крестику или кнопке OK
     if (
       e.target.classList.contains("close-x") ||
       e.target.classList.contains("ok-btn")
@@ -206,7 +198,6 @@ function spawnFallingItem() {
 
   const left = Math.random() * maxLeft;
 
-  // падение медленнее
   const duration = 4200 + Math.random() * 1800;
 
   itemWrap.style.left = `${left}px`;
@@ -330,13 +321,11 @@ okGameBtn.addEventListener("click", () => {
   hideModal();
 });
 
-// появление скрытого меча
 const rewardContainer = document.getElementById("rewardContainer");
 
 function spawnRewardItem() {
   if (!rewardContainer) return;
 
-  // чтобы предмет не добавлялся повторно
   if (rewardContainer.querySelector(".reward-item")) return;
 
   const reward = document.createElement("img");
@@ -346,7 +335,6 @@ function spawnRewardItem() {
   rewardContainer.appendChild(reward);
 }
 
-// если страница/экран открылись позже, предмет всё равно появится
 if (localStorage.getItem("game1Passed") === "true") {
   gameCompletedSuccessfully = true;
   spawnRewardItem();
@@ -453,7 +441,6 @@ function spawnForestRewardItem() {
   forestRewardContainer.appendChild(reward);
 }
 
-// уменьшенные хитбоксы, чтобы столкновение не было слишком жестким
 function rectsIntersect(rect1, rect2) {
   const dragonHitbox = {
     left: rect1.left + rect1.width * 0.22,
@@ -491,7 +478,6 @@ function checkDragonCollision(tree) {
   }
 }
 
-// спавн пары елок с гарантированным проходом
 function spawnTreePair() {
   if (!forestGame || !treesLayer || !dragonPlayer) return;
 
@@ -504,7 +490,6 @@ function spawnTreePair() {
   const safeMarginTop = 12;
   const safeMarginBottom = 12;
 
-  // проход больше дракона
   const gapHeight = dragonRect.height * 1.6;
 
   const minGapTop = safeMarginTop + treeHeight * 0.45;
@@ -533,10 +518,8 @@ function spawnTreePair() {
   topTree.style.left = `${gameRect.width + 20}px`;
   bottomTree.style.left = `${gameRect.width + 20}px`;
 
-  // верхняя ёлка
   topTree.style.top = `${gapTop - treeHeight}px`;
 
-  // нижняя ёлка
   bottomTree.style.top = `${gapBottom}px`;
 
   const duration = 4600 + Math.random() * 1200;
@@ -658,8 +641,6 @@ function startForestGame() {
   }, 950);
 }
 
-// ===== ПЕРЕТАСКИВАНИЕ ДРАКОНА =====
-
 function startDragonDrag(e) {
   if (!forestStarted || forestCompletedSuccessfully || !dragonPlayer) return;
 
@@ -698,8 +679,6 @@ function stopDragonDrag() {
   }
 }
 
-// ===== ОБРАБОТЧИКИ =====
-
 if (forestGame) {
   forestGame.addEventListener("click", (e) => {
     if (e.target === dragonPlayer) return;
@@ -731,7 +710,6 @@ if (okForestBtn) {
   });
 }
 
-// появление блузки
 if (
   forestRewardContainer &&
   localStorage.getItem("forestGamePassed") === "true"
@@ -762,7 +740,6 @@ let mazeCompletedSuccessfully = false;
 
 localStorage.removeItem("mazeGamePassed");
 
-// Более точная квадратная сетка
 const MAZE_COLS = 17;
 const MAZE_ROWS = 17;
 
@@ -787,10 +764,8 @@ const mazeMap = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], //17
 ];
 
-// старт справа
 let dragonCell = { col: 16, row: 9 };
 
-// замок слева снизу
 const castleCell = { col: 1, row: 15 };
 
 function cellToPosition(col, row) {
@@ -805,12 +780,9 @@ function cellToPosition(col, row) {
 
   const gameRect = mazeGame.getBoundingClientRect();
   const bgRect = mazeBg.getBoundingClientRect();
-
-  // положение картинки лабиринта внутри общего блока
   const offsetLeft = bgRect.left - gameRect.left;
   const offsetTop = bgRect.top - gameRect.top;
 
-  // если у SVG есть внутренние пустые поля, можно будет подправить эти значения
   const innerOffsetX = 0;
   const innerOffsetY = 0;
   const innerWidth = bgRect.width;
@@ -1054,8 +1026,6 @@ function showNextSageLine() {
 
   const line = sageLines[sageCurrentLineIndex];
   setSageSpeech(line);
-
-  // если это не последняя реплика — потом показываем "а еще..."
   if (sageCurrentLineIndex < sageLines.length - 1) {
     sageTimeoutId = setTimeout(() => {
       setSageSpeech("а еще...");
@@ -1066,7 +1036,6 @@ function showNextSageLine() {
     return;
   }
 
-  // после пятой реплики — финальная фраза
   sageTimeoutId = setTimeout(() => {
     setSageSpeech("все, иди с богом");
     sageCompletedSuccessfully = true;
@@ -1108,7 +1077,107 @@ window.addEventListener("beforeunload", () => {
 });
 
 //манекен и корзина
- if (isOverMannequin(element, mannequinZone)) {
+document.addEventListener("DOMContentLoaded", () => {
+  const basket = document.getElementById("basket");
+  const clothesPile = document.getElementById("clothesPile");
+  const mannequinZone = document.getElementById("mannequinZone");
+  const outfitStage = document.getElementById("outfitStage");
+
+  const sceneItems = [
+    {
+      el: document.getElementById("itemArmor2"),
+      mannequinLeft: "48.5%",
+      mannequinTop: "22vw",
+    },
+    {
+      el: document.getElementById("itemArmor"),
+      mannequinLeft: "48.2%",
+      mannequinTop: "15vw",
+    },
+    {
+      el: document.getElementById("itemBlouse"),
+      mannequinLeft: "49.2%",
+      mannequinTop: "10.4vw",
+    },
+    {
+      el: document.getElementById("itemSword"),
+      mannequinLeft: "57%",
+      mannequinTop: "23vw",
+    },
+  ];
+
+  let basketOpened = false;
+
+  basket.addEventListener("click", () => {
+    if (basketOpened) return;
+    basketOpened = true;
+
+    // скрываем кучку в корзине
+    clothesPile.classList.add("is-hidden");
+
+    sceneItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.el.classList.remove("hidden");
+        item.el.classList.add("visible");
+      }, index * 120);
+    });
+  });
+
+  sceneItems.forEach(({ el, mannequinLeft, mannequinTop }) => {
+    makeDraggable(el, mannequinLeft, mannequinTop);
+  });
+
+  function makeDraggable(element, mannequinLeft, mannequinTop) {
+    let isDragging = false;
+    let shiftX = 0;
+    let shiftY = 0;
+
+    element.addEventListener("pointerdown", (e) => {
+      if (element.classList.contains("hidden")) return;
+
+      isDragging = true;
+      element.classList.add("dragging");
+
+      const rect = element.getBoundingClientRect();
+      shiftX = e.clientX - rect.left;
+      shiftY = e.clientY - rect.top;
+
+      element.setPointerCapture(e.pointerId);
+    });
+
+    element.addEventListener("pointermove", (e) => {
+      if (!isDragging) return;
+
+      const stageRect = outfitStage.getBoundingClientRect();
+
+      let left = e.clientX - stageRect.left - shiftX;
+      let top = e.clientY - stageRect.top - shiftY;
+
+      const maxLeft = stageRect.width - element.offsetWidth;
+      const maxTop = stageRect.height - element.offsetHeight;
+
+      left = Math.max(0, Math.min(left, maxLeft));
+      top = Math.max(0, Math.min(top, maxTop));
+
+      element.style.left = `${left}px`;
+      element.style.top = `${top}px`;
+
+      if (isOverMannequin(element, mannequinZone)) {
+        mannequinZone.classList.add("drop-hover");
+      } else {
+        mannequinZone.classList.remove("drop-hover");
+      }
+    });
+
+    element.addEventListener("pointerup", (e) => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      element.classList.remove("dragging");
+      mannequinZone.classList.remove("drop-hover");
+      element.releasePointerCapture(e.pointerId);
+
+      if (isOverMannequin(element, mannequinZone)) {
         snapToMannequin(element, mannequinLeft, mannequinTop);
       }
     });
@@ -1140,4 +1209,3 @@ window.addEventListener("beforeunload", () => {
     element.style.top = top;
   }
 });
-</script>

@@ -1,0 +1,954 @@
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #363636;
+  }
+
+  h1 {
+    font-size: 20vw;
+  }
+
+  h2 {
+    font-size: 4.6vw;
+    line-height: 110%;
+  }
+
+  h3,
+  h4 {
+    font-size: 4.2vw;
+  }
+
+  h5 {
+    font-size: 8vw;
+  }
+
+  h6 {
+    font-size: 6.4vw;
+    line-height: 100%;
+  }
+
+  p {
+    font-size: 2.7vw;
+    line-height: 130%;
+  }
+
+  .screen_1,
+  .screen_2,
+  .screen_3,
+  .screen_4,
+  .screen_5 {
+    min-height: auto;
+    height: auto;
+  }
+
+  .screen_1 {
+    padding: 6vw 0 8vw;
+  }
+
+  .text-background {
+    width: 62vw;
+    height: 25vw;
+    padding-top: 3vw;
+    transform: translateY(0);
+    z-index: 2;
+  }
+
+  .circle-text {
+    width: 110vw;
+    height: 110vw;
+    top: 8vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .shop-btn {
+    padding: 1.8vw 4.4vw;
+    border-width: 0.35vw;
+    border-radius: 5vw;
+    margin-top: 4vw;
+  }
+
+  .shop-btn h2 {
+    font-size: 3.1vw;
+  }
+
+  .fake-window {
+    width: 34vw;
+    min-height: 18vw;
+    border-width: 0.3vw;
+  }
+
+  .window-header {
+    height: 3.8vw;
+    border-bottom-width: 0.3vw;
+  }
+
+  .close-x {
+    width: 3.2vw;
+    height: 2.8vw;
+    font-size: 2.4vw;
+    border-width: 0.3vw;
+  }
+
+  .ok-btn {
+    width: 12vw;
+    height: 3.8vw;
+    font-size: 2.3vw;
+    border-width: 0.3vw;
+  }
+
+  .window-body p {
+    font-size: 2.8vw;
+  }
+
+  .error-icon {
+    width: 3vw;
+    height: 3vw;
+    font-size: 2.3vw;
+    border-width: 0.3vw;
+  }
+
+  .pink-line,
+  .second-line,
+  .pink-line-2,
+  .second-line-2 {
+    height: 6.2vw;
+  }
+
+  .second-line {
+    top: 5.6vw;
+  }
+
+  .pink-line-2 {
+    top: 0;
+  }
+
+  .second-line-2 {
+    top: 5.6vw;
+  }
+
+  .marquee-text_1,
+  .marquee-text_2,
+  .marquee-text_1-2,
+  .marquee-text_2-2 {
+    margin-top: 1.1vw;
+  }
+
+  .f5-2,
+  .f8-3,
+  .f8-4 {
+    width: 2.2vw;
+    height: 2.2vw;
+  }
+
+  .screen_2 {
+    padding: 13vw 2.4vw 4vw;
+  }
+
+  .game-screen {
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+  }
+
+  .map {
+    width: 100%;
+    height: 68vw;
+    margin: 0;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+  }
+
+  .info-panel {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .item-window__top {
+    height: auto;
+    padding-right: 1vw;
+  }
+
+  .close-btn {
+    width: 4.4vw;
+    height: 4vw;
+    font-size: 4vw;
+    border-width: 0.3vw;
+    margin-top: 0;
+  }
+
+  .item-window__body {
+    width: 100%;
+    height: 26vw;
+    padding: 2vw;
+  }
+
+  .item-window__body img {
+    max-height: 72%;
+    padding-top: 2vw;
+  }
+
+  .item-info {
+    margin-top: 2vw;
+    gap: 1.8vw;
+  }
+
+  .info-row {
+    gap: 1.6vw;
+    margin-left: 0;
+  }
+
+  .info-value {
+    font-size: 2.5vw;
+    border-radius: 4vw;
+    padding: 1vw 2vw;
+  }
+
+  .screen_3 {
+    padding: 0 2.4vw 4vw;
+  }
+
+  .block-1_3,
+  .block-2_3 {
+    flex-direction: column;
+    gap: 2.4vw;
+    height: auto;
+    margin-top: 2.4vw;
+  }
+
+  .mountains_anim,
+  .forest_anim {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+  }
+
+  .mountains_anim {
+    height: 34vw;
+    order: 2;
+  }
+
+  .forest_anim {
+    height: 42vw;
+    order: 2;
+  }
+
+  .text-block_1,
+  .text-block_2 {
+    width: 100%;
+    height: auto;
+    min-height: 16vw;
+    margin-left: 0;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+    padding: 3.2vw 4vw;
+    gap: 1.4vw;
+  }
+
+  .text-block_1 p,
+  .text-block_2 p {
+    margin-left: 0;
+  }
+
+  .game-start,
+  .game-start--forest,
+  .game-start--maze {
+    font-size: 2.4vw;
+    padding: 1vw 2vw;
+    border-radius: 4vw;
+  }
+
+  .game-modal__content {
+    width: 58vw;
+    padding: 4vw;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+  }
+
+  .game-modal__content p,
+  #restartGameBtn,
+  #okGameBtn,
+  #restartForestBtn,
+  #okForestBtn,
+  #okMazeBtn {
+    font-size: 2.6vw;
+  }
+
+  .dragon-player {
+    width: 13vw;
+  }
+
+  .tree-obstacle {
+    width: 7vw;
+  }
+
+  .screen_4 {
+    padding: 2.4vw;
+    flex-direction: column;
+    gap: 2.4vw;
+  }
+
+  .block-1_4,
+  .block-2_4,
+  .control-section_1,
+  .control-section_2 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .block-1_4 {
+    height: 54vw;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+  }
+
+  .block-2_4 {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4vw;
+  }
+
+  .control-section_1 {
+    height: 52vw;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+  }
+
+  .control-section_2 {
+    height: auto;
+    min-height: 18vw;
+    border-radius: 4vw;
+    border-width: 0.3vw;
+    margin-top: 0;
+    padding: 3vw 4vw;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sage-top-label {
+    top: 4vw;
+    min-width: auto;
+    max-width: 34vw;
+    padding: 1.3vw 1.8vw;
+    border-radius: 4vw;
+    font-size: 2.4vw;
+    margin-top: 0;
+    white-space: normal;
+  }
+
+  .sage-speech {
+    right: 8vw;
+    top: 26vw;
+    width: 18vw;
+    min-height: 8vw;
+    padding: 1.4vw 1.8vw;
+    border-radius: 4vw;
+    font-size: 2.4vw;
+  }
+
+  .sage-speech--pause {
+    width: 12vw;
+    height: auto;
+    padding: 1vw 1.2vw;
+  }
+
+  .sage-speech--final {
+    width: 22vw;
+    min-height: 7vw;
+    padding: 1.2vw 1.5vw;
+    white-space: normal;
+  }
+
+  .sage-oldman {
+    left: 4vw;
+    bottom: -14vw;
+    width: 34vw;
+    height: auto;
+  }
+
+  .maze-bg {
+    width: 43vw;
+    height: 43vw;
+  }
+
+  .maze-dragon {
+    width: 22vw;
+    height: auto;
+  }
+
+  .maze-castle {
+    width: 20vw;
+    height: auto;
+  }
+
+  .maze-text-block {
+    margin: 0;
+    padding: 0;
+  }
+
+  .maze-text-block p {
+    margin-top: 1vw;
+  }
+
+  .maze-controls {
+    margin: 0;
+    gap: 0.8vw;
+  }
+
+  .maze-controls__row {
+    gap: 0.8vw;
+  }
+
+  .maze-btn {
+    width: 9vw;
+    height: 5.2vw;
+    font-size: 3vw;
+    border-width: 0.3vw;
+    border-radius: 1.8vw;
+  }
+
+  .screen_5 {
+    padding: 0 2.4vw 2.4vw;
+  }
+
+  .outfit-screen {
+    width: 100%;
+    height: 74vw;
+    margin: 0;
+    border-width: 0.3vw;
+    border-radius: 4vw;
+  }
+
+  .outfit-hint {
+    left: 3vw;
+    top: 3vw;
+    width: 34vw;
+    height: auto;
+    min-height: 16vw;
+    padding: 2vw 2.4vw;
+    border-width: 0.3vw;
+    border-radius: 4vw;
+    align-items: flex-start;
+  }
+
+  .outfit-hint h2 {
+    margin: 0 0 1vw;
+  }
+
+  .outfit-hint p {
+    margin-left: 0;
+  }
+
+  .basket-area {
+    left: 2vw;
+    bottom: 3vw;
+    width: 28vw;
+    height: 24vw;
+  }
+
+  .clothes {
+    left: 3vw;
+    bottom: 7vw;
+    width: 16vw;
+    height: 12vw;
+  }
+
+  .basket {
+    width: 22vw;
+    height: auto;
+  }
+
+  .reward-item {
+    width: 11vw;
+  }
+
+  .mannequin-zone {
+    top: 7vw;
+    width: 16vw;
+    height: 54vw;
+  }
+
+  .mannequin {
+    width: 16vw;
+  }
+
+  .mannequin-zone.drop-hover {
+    outline-width: 0.3vw;
+    outline-offset: 0.8vw;
+    border-radius: 2vw;
+  }
+
+  .item-armor2 {
+    width: 11vw;
+    left: 12vw;
+    top: 42vw;
+  }
+
+  .item-armor {
+    width: 17vw;
+    left: 30vw;
+    top: 18vw;
+  }
+
+  .item-blouse {
+    width: 14vw;
+    left: 47vw;
+    top: 17vw;
+  }
+
+  .item-sword {
+    width: 7vw;
+    left: 70vw;
+    top: 44vw;
+  }
+
+  .footer {
+    height: 26vw;
+    padding: 2vw 3vw;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .left {
+    gap: 2vw;
+    margin-left: 0;
+  }
+
+  .left h5 {
+    margin-left: 0;
+    margin-top: 9vw;
+  }
+
+  .right {
+    width: 24vw;
+    height: 9vw;
+    margin-left: auto;
+    margin-top: 12vw;
+  }
+}
+
+@media (max-width: 414px) {
+  h1 {
+    font-size: 25vw;
+  }
+
+  h2 {
+    font-size: 6vw;
+  }
+
+  h3,
+  h4 {
+    font-size: 5.4vw;
+  }
+
+  h5 {
+    font-size: 10vw;
+  }
+
+  h6 {
+    font-size: 8vw;
+  }
+
+  p {
+    font-size: 3.9vw;
+  }
+
+  .screen_1 {
+    padding: 10vw 0 12vw;
+  }
+
+  .text-background {
+    width: 70vw;
+    height: 28vw;
+    padding-top: 4vw;
+  }
+
+  .circle-text {
+    width: 132vw;
+    height: 132vw;
+    top: 18vw;
+  }
+
+  .shop-btn {
+    padding: 2.8vw 5.8vw;
+    border-width: 0.55vw;
+    border-radius: 8vw;
+    margin-top: 6vw;
+  }
+
+  .shop-btn h2 {
+    font-size: 4.3vw;
+  }
+
+  .fake-window {
+    width: 46vw;
+    min-height: 24vw;
+    border-width: 0.45vw;
+  }
+
+  .window-header {
+    height: 5.6vw;
+    border-bottom-width: 0.45vw;
+  }
+
+  .window-body p {
+    font-size: 3.6vw;
+  }
+
+  .close-x {
+    width: 5vw;
+    height: 4.6vw;
+    font-size: 3.8vw;
+    border-width: 0.45vw;
+    margin-right: 0.8vw;
+  }
+
+  .ok-btn {
+    width: 18vw;
+    height: 5.8vw;
+    font-size: 3.5vw;
+    border-width: 0.45vw;
+    margin-top: 1vw;
+  }
+
+  .error-icon {
+    width: 4.2vw;
+    height: 4.2vw;
+    font-size: 3.3vw;
+    border-width: 0.45vw;
+    left: 2vw;
+    top: 3vw;
+  }
+
+  .pink-line,
+  .second-line,
+  .pink-line-2,
+  .second-line-2 {
+    height: 9vw;
+  }
+
+  .second-line,
+  .second-line-2 {
+    top: 8vw;
+  }
+
+  .marquee-text_1,
+  .marquee-text_2,
+  .marquee-text_1-2,
+  .marquee-text_2-2 {
+    margin-top: 1.8vw;
+  }
+
+  .f5-2,
+  .f8-3,
+  .f8-4 {
+    width: 3.4vw;
+    height: 3.4vw;
+  }
+
+  .screen_2 {
+    padding: 19vw 3vw 5vw;
+  }
+
+  .game-screen {
+    gap: 4vw;
+  }
+
+  .map {
+    height: 98vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .item-window__body {
+    height: 38vw;
+    padding: 3vw;
+  }
+
+  .close-btn {
+    width: 7vw;
+    height: 6.4vw;
+    font-size: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .item-info {
+    gap: 2.4vw;
+    margin-top: 3vw;
+  }
+
+  .info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vw;
+  }
+
+  .info-value {
+    font-size: 3.6vw;
+    border-radius: 7vw;
+    padding: 1.6vw 3vw;
+  }
+
+  .screen_3 {
+    padding: 0 3vw 5vw;
+  }
+
+  .block-1_3,
+  .block-2_3 {
+    gap: 3vw;
+    margin-top: 3vw;
+  }
+
+  .mountains_anim {
+    height: 48vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .forest_anim {
+    height: 56vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .text-block_1,
+  .text-block_2 {
+    min-height: 25vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+    padding: 4vw 5vw;
+    gap: 2vw;
+  }
+
+  .game-start,
+  .game-start--forest,
+  .game-start--maze {
+    font-size: 3.8vw;
+    padding: 1.6vw 3vw;
+    border-radius: 6vw;
+  }
+
+  .dragon-player {
+    width: 18vw;
+  }
+
+  .tree-obstacle {
+    width: 9vw;
+  }
+
+  .game-modal__content {
+    width: 82vw;
+    padding: 6vw 5vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .game-modal__content p,
+  #restartGameBtn,
+  #okGameBtn,
+  #restartForestBtn,
+  #okForestBtn,
+  #okMazeBtn {
+    font-size: 3.8vw;
+  }
+
+  .screen_4 {
+    padding: 3vw;
+    gap: 3vw;
+  }
+
+  .block-1_4 {
+    height: 82vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .control-section_1 {
+    height: 80vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+  }
+
+  .control-section_2 {
+    min-height: 28vw;
+    border-radius: 6vw;
+    border-width: 0.45vw;
+    padding: 4vw 5vw;
+    align-items: center;
+  }
+
+  .sage-top-label {
+    top: 5vw;
+    max-width: 56vw;
+    font-size: 3.8vw;
+    padding: 2vw 3vw;
+    border-radius: 6vw;
+  }
+
+  .sage-speech {
+    right: 6vw;
+    top: 39vw;
+    width: 31vw;
+    min-height: 13vw;
+    padding: 2vw 2.4vw;
+    font-size: 3.7vw;
+    border-radius: 6vw;
+  }
+
+  .sage-speech--pause {
+    width: 18vw;
+    padding: 1.4vw 1.8vw;
+  }
+
+  .sage-speech--final {
+    width: 34vw;
+    min-height: 12vw;
+    padding: 2vw 2.4vw;
+  }
+
+  .sage-oldman {
+    left: 3vw;
+    bottom: -19vw;
+    width: 52vw;
+  }
+
+  .maze-bg {
+    width: 66vw;
+    height: 66vw;
+  }
+
+  .maze-dragon {
+    width: 32vw;
+  }
+
+  .maze-castle {
+    width: 28vw;
+  }
+
+  .maze-text-block {
+    width: 58%;
+  }
+
+  .maze-controls {
+    gap: 1.2vw;
+  }
+
+  .maze-controls__row {
+    gap: 1.2vw;
+  }
+
+  .maze-btn {
+    width: 13vw;
+    height: 8vw;
+    font-size: 4.8vw;
+    border-width: 0.45vw;
+    border-radius: 2.8vw;
+  }
+
+  .screen_5 {
+    padding: 0 3vw 3vw;
+  }
+
+  .outfit-screen {
+    height: 138vw;
+    border-width: 0.45vw;
+    border-radius: 6vw;
+  }
+
+  .outfit-hint {
+    left: 4vw;
+    top: 4vw;
+    width: 48vw;
+    min-height: 23vw;
+    padding: 3vw 3.5vw;
+    border-width: 0.45vw;
+    border-radius: 6vw;
+  }
+
+  .basket-area {
+    left: 3vw;
+    bottom: 5vw;
+    width: 35vw;
+    height: 31vw;
+  }
+
+  .clothes {
+    left: 4vw;
+    bottom: 9vw;
+    width: 20vw;
+    height: 16vw;
+  }
+
+  .basket {
+    width: 28vw;
+  }
+
+  .reward-item {
+    width: 15vw;
+  }
+
+  .mannequin-zone {
+    top: 20vw;
+    width: 25vw;
+    height: 88vw;
+  }
+
+  .mannequin {
+    width: 25vw;
+  }
+
+  .mannequin-zone.drop-hover {
+    outline-width: 0.45vw;
+    outline-offset: 1vw;
+    border-radius: 3vw;
+  }
+
+  .item-armor2 {
+    width: 17vw;
+    left: 8vw;
+    top: 82vw;
+  }
+
+  .item-armor {
+    width: 24vw;
+    left: 23vw;
+    top: 42vw;
+  }
+
+  .item-blouse {
+    width: 20vw;
+    left: 48vw;
+    top: 40vw;
+  }
+
+  .item-sword {
+    width: 10vw;
+    left: 78vw;
+    top: 85vw;
+  }
+
+  .footer {
+    height: 42vw;
+    padding: 3vw 4vw;
+  }
+
+  .left {
+    gap: 3vw;
+  }
+
+  .left h5 {
+    margin-top: 16vw;
+  }
+
+  .right {
+    width: 32vw;
+    height: 12vw;
+    margin-top: 20vw;
+  }
+}

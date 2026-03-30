@@ -53,7 +53,7 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  justify-content: center; /* по горизонтали */
+  justify-content: center;
   align-items: center;
   position: relative;
   flex-direction: column;
@@ -323,7 +323,6 @@ p {
   justify-content: flex-start;
 }
 
-/* Левая карта */
 .map {
   position: relative;
   width: 65.83vw;
@@ -347,7 +346,6 @@ p {
   vertical-align: middle;
 }
 
-/* Общий стиль интерактивных точек */
 .map-object {
   position: absolute;
   border: none;
@@ -360,7 +358,6 @@ p {
     box-shadow 0.2s ease;
 }
 
-/* Горы */
 .mountains {
   left: -3vw;
   top: -0.5vw;
@@ -373,7 +370,6 @@ p {
   vertical-align: middle;
 }
 
-/* Хижина */
 .hut {
   left: 2vw;
   top: 10vw;
@@ -387,7 +383,6 @@ p {
   z-index: 9;
 }
 
-/* Лес */
 .forest {
   left: 0;
   bottom: -5vw;
@@ -400,7 +395,6 @@ p {
   vertical-align: middle;
 }
 
-/* Замок */
 .castle {
   right: 0;
   top: 0;
@@ -413,7 +407,6 @@ p {
   vertical-align: middle;
 }
 
-/* Правая панель */
 .info-panel {
   width: 28.69vw;
   height: 16.84vw;
@@ -673,8 +666,8 @@ p {
   border: 0.1vw solid #70d6d8;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* по вертикали */
-  align-items: center; /* по горизонтали */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   gap: 1vw;
   text-align: left;
@@ -705,8 +698,8 @@ p {
   border: 0.1vw solid #70d6d8;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* по вертикали */
-  align-items: center; /* по горизонтали */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   gap: 1vw;
   text-align: left;
@@ -1092,8 +1085,8 @@ p {
   color: #363636;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* по вертикали */
-  align-items: center; /* по горизонтали */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   box-sizing: border-box;
   text-align: left;
@@ -1130,13 +1123,11 @@ p {
     visibility 0.35s ease;
 }
 
-/* После клика на корзину контейнер скрывается */
 .clothes.is-hidden {
   opacity: 0;
   visibility: hidden;
 }
 
-/* Все предметы внутри корзины - абсолютные, чтобы лежали кучкой */
 .basket-item {
   position: absolute;
   background-repeat: no-repeat;
@@ -1147,8 +1138,7 @@ p {
     opacity 0.35s ease;
 }
 
-/* Кучка внутри корзины */
-.basket-armor2 {
+/ .basket-armor2 {
   width: 5.5vw;
   height: 7vw;
   left: 4.4vw;
@@ -1237,14 +1227,12 @@ p {
   border-radius: 1vw;
 }
 
-/* Слой с большими предметами на сцене */
 .outfit-items-layer {
   position: absolute;
   inset: 0;
   z-index: 7;
 }
 
-/* Общий стиль предметов */
 .outfit-item {
   position: absolute;
   cursor: grab;
@@ -1264,21 +1252,18 @@ p {
   z-index: 20;
 }
 
-/* Изначально скрыты */
 .outfit-item.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-/* После открытия */
 .outfit-item.visible {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* Стартовые позиции на сцене — примерно как на твоём скрине */
 .item-armor2 {
   width: 7.2vw;
   left: 10vw;
