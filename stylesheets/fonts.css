@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "Helmswald";
+  src: url("../fonts/Helmswald.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Druzhok";
+  src: url("../fonts/DRUZHOK.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../fonts/Lobster.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Yunga";
+  src: url("../fonts/YUNGA-Display.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Greybeard";
+  src: url("../fonts/Greybeard-12px.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Aquiline";
+  src: url("../fonts/Aquiline.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Abibas";
+  src: url("../fonts/ABIBAS.OTF") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Drakkar";
+  src: url("../fonts/Drakkar\ Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Wolgadeutsche";
+  src: url("../fonts/Wolgadeutsche.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Terni";
+  src: url("../fonts/terni-zvezdy.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CCSpellcaster";
+  src: url("../fonts/CCSpellcaster\ Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Anticva";
+  src: url("../fonts/Anticva-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Calypso";
+  src: url("../fonts/Calypso.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DasikPush";
+  src: url("../fonts/DacikPush.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Saint";
+  src: url("../fonts/Saint\ Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}

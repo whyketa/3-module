@@ -1,0 +1,1387 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  background-color: #363636;
+  overflow-x: hidden;
+}
+h1 {
+  font-family: "Helmswald";
+  font-size: 12.03125vw;
+  color: #000000;
+}
+h2 {
+  font-family: "Inter";
+  font-size: 2.08vw;
+  color: #363636;
+  font-weight: 700;
+}
+h3 {
+  font-size: 2.23vw;
+  color: #363636;
+}
+h4 {
+  font-size: 2.23vw;
+  color: #ffffff;
+}
+h5 {
+  font-family: "Aquiline";
+  font-size: 3vw;
+  color: #ffffff;
+}
+h6 {
+  font-family: "Helmswald";
+  font-size: 3.63vw;
+  color: #ffffff;
+}
+p {
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  line-height: 130%;
+}
+/*первый экран*/
+.screen_1 {
+  min-height: 100vh;
+  display: flex;
+  height: 100%;
+  gap: 0;
+  overflow: hidden;
+  background-image: url("../images/pattern_1.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  justify-content: center; /* по горизонтали */
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+.text-background {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 44.32vw;
+  height: 17.75vw;
+  background-image: url("../images/logo_back.svg");
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 2vw;
+  transform: translateY(-5vw);
+}
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90vw;
+  height: 90vw;
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+}
+
+.circle-text img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* кнопка */
+.shop-btn {
+  padding: 12px 28px;
+  background: #70d6d8;
+  border: 0.156vw solid white;
+  border-radius: 2vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+.shop-btn h2 {
+  color: #ffffff;
+}
+
+#popups-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.fake-window {
+  position: absolute;
+  display: none;
+  width: 27.92vw;
+  min-height: 13.8vw;
+  background: #fff;
+  border: 0.16vw solid #000;
+  pointer-events: auto;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.window-header {
+  position: relative;
+  width: 100%;
+  height: 2.59vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #f92535;
+  border-bottom: 0.16vw solid #000;
+  box-sizing: border-box;
+}
+
+.window-red .window-header {
+  background-color: #f92535;
+}
+.window-blue .window-header {
+  background-color: #70d6d8;
+}
+
+.window-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+
+  position: relative;
+}
+
+.window-body p {
+  font-family: "Inter", sans-serif;
+  color: #000;
+  font-size: 2.28vw;
+  text-align: left;
+}
+.window-blue p {
+  padding-left: 3.7vw;
+  padding-bottom: 2.71vw;
+  padding-top: 1.77vw;
+}
+
+.window-red p {
+  padding-top: 1.67vw;
+}
+
+.error-icon {
+  width: 2vw;
+  height: 2vw;
+  background-color: #f92535;
+  border-radius: 50%;
+  border: 0.2vw solid #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 1.7vw;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  position: absolute;
+  left: 1.21vw;
+  top: 2.1vw;
+}
+
+.close-x,
+.ok-btn {
+  cursor: pointer;
+  border: 0.16vw solid #000;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.close-x {
+  cursor: pointer;
+  background: #fdabca;
+  color: white;
+  width: 1.93vw;
+  height: 1.69vw;
+  border: 0.16vw solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.4vw;
+  line-height: 0;
+  font-size: 1.5vw;
+}
+
+.ok-btn {
+  cursor: pointer;
+  background: #fdabca;
+  color: #ffffff;
+  width: 10vw;
+  height: 2.43vw;
+  border: 0.16vw solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5vw;
+  line-height: 0;
+  font-size: 1.8vw;
+}
+
+/*второй экран*/
+.screen_2 {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+  overflow: hidden;
+  background-image: url("../images/pattern_2.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  flex-direction: row;
+}
+.pink-line {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fdabca;
+  width: 100%;
+  height: 4.8vw;
+  position: absolute;
+  top: 0;
+}
+.f1 {
+  font-family: "Druzhok";
+}
+.f2 {
+  font-family: "Lobster";
+}
+.f3 {
+  font-family: "Yunga";
+}
+.f4 {
+  font-family: "Greybeard";
+}
+.f5 {
+  font-family: "Aquiline";
+}
+.f6 {
+  font-family: "Abibas";
+}
+.f7 {
+  font-family: "Drakkar";
+}
+
+.marquee-text_1 {
+  margin-top: 0.7vw;
+  display: inline-block;
+  padding-right: 100%;
+  animation: marquee 15s linear infinite;
+}
+
+.second-line {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  height: 4.8vw;
+  position: absolute;
+  top: 4.3vw;
+}
+
+.f1-2 {
+  font-family: "Aquiline";
+}
+.f2-2 {
+  font-family: "Greybeard";
+}
+.f3-2 {
+  font-family: "Wolgadeutsche";
+}
+.f4-2 {
+  font-family: "Terni";
+}
+.f5-2 {
+  display: inline-block;
+  width: 1.35vw;
+  height: 1.35vw;
+  background: url("../images/star.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.marquee-text_2 {
+  margin-top: 0.7vw;
+  display: inline-block;
+  padding-right: 100%;
+  animation: marquee2 15s linear infinite;
+}
+.game-screen {
+  display: flex;
+  align-items: row;
+  justify-content: flex-start;
+}
+
+/* Левая карта */
+.map {
+  position: relative;
+  width: 65.83vw;
+  height: 44.84vw;
+  border-radius: 2.08vw;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fdabca;
+  border: 0.156vw solid #70d6d8;
+  margin-top: 9.84vw;
+  margin-left: 1.56vw;
+}
+
+.map-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../images/map.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Общий стиль интерактивных точек */
+.map-object {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  color: transparent;
+  background: transparent;
+  border-radius: 18px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Горы */
+.mountains {
+  left: -3vw;
+  top: -0.5vw;
+  width: 34.42vw;
+  height: 17.18vw;
+  background: url("../images/mountains.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Хижина */
+.hut {
+  left: 2vw;
+  top: 10vw;
+  width: 22vw;
+  height: 19vw;
+  background: url("../images/hut.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  z-index: 9;
+}
+
+/* Лес */
+.forest {
+  left: 0;
+  bottom: -5vw;
+  width: 29.11vw;
+  height: 27.96vw;
+  background: url("../images/forest.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Замок */
+.castle {
+  right: 0;
+  top: 0;
+  width: 20.57vw;
+  height: 29.11vw;
+  background: url("../images/castle.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+/* Правая панель */
+.info-panel {
+  width: 28.69vw;
+  height: 16.84vw;
+  margin-top: 10vw;
+  margin-right: 1.56vw;
+  margin-left: 1vw;
+}
+
+.item-window {
+  display: none;
+}
+
+.item-window.active {
+  display: block;
+}
+.item-window__top {
+  height: 2.2vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 0.4vw;
+}
+
+.close-btn {
+  width: 2.16vw;
+  height: 1.89vw;
+  background: #fdabca;
+  border: 0.2vw solid #000;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 2vw;
+  line-height: 3;
+  padding: 0;
+  margin-top: 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  appearance: none;
+}
+
+.item-window__body {
+  width: 28.69vw;
+  height: 16.84vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  background: url("../images/window.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.item-window__body img {
+  max-width: 100%;
+  max-height: 80%;
+  object-fit: contain;
+  padding-top: 3vw;
+}
+
+.item-info {
+  margin-top: 3vw;
+  display: none;
+  gap: 2.7vw;
+  flex-direction: column;
+}
+
+.item-info.active {
+  display: flex;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2vw;
+  margin-left: 4vw;
+}
+
+.info-label {
+  color: #ffc8df;
+}
+
+.info-value {
+  background: #fff;
+  color: #202020;
+  padding: 7px 14px;
+  border-radius: 2.08vw;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* третий экран */
+.screen_3 {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+  overflow: hidden;
+  background-image: url("../images/pattern_3.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  flex-direction: column;
+}
+.block-1_3 {
+  display: flex;
+  gap: 1.56vw;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+  margin-top: 1.56vw;
+}
+.mountains_anim {
+  width: 64.79vw;
+  height: 24.06vw;
+  border: 0.15vw solid #fdabca;
+  border-radius: 2.08vw;
+  background-image: url("../images/mountains_big.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  margin-left: 1.56vw;
+}
+.items-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.falling-item-wrap {
+  position: absolute;
+  top: -4.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  z-index: 6;
+  pointer-events: auto;
+}
+
+.game-start {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 0.7vw 1.2vw;
+  border-radius: 2.08vw;
+  background: #fff;
+  color: rgb(0, 0, 0);
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.falling-item {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.falling-item.caught {
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.game-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-modal.hidden {
+  display: none;
+}
+
+.game-modal__content {
+  width: 28vw;
+  padding: 2vw;
+  border-radius: 2.08vw;
+  background: #fdabca;
+  border: 0.15vw solid #70d6d8;
+  text-align: center;
+}
+
+.game-modal__content h2 {
+  margin: 0 0 1vw;
+  color: #363636;
+}
+
+.game-modal__content p {
+  margin: 0 0 1.2vw;
+  color: #363636;
+}
+
+.game-modal__content button {
+  padding: 0.8vw 1.4vw;
+  border-radius: 1vw;
+  border: none;
+  background: #363636;
+  color: white;
+  cursor: pointer;
+}
+#restartGameBtn {
+  padding: 0.8vw 1.4vw;
+  border-radius: 2.08vw;
+  border: none;
+  background: #363636;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+}
+.game-modal__actions {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+
+.hidden-btn {
+  display: none;
+}
+
+#okGameBtn {
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  color: #ffffff;
+}
+.text-block_1 {
+  background-color: #fdabca;
+  width: 30.468vw;
+  height: 13.541vw;
+  border-radius: 2.08vw;
+  border: 0.1vw solid #70d6d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* по вертикали */
+  align-items: center; /* по горизонтали */
+  text-align: center;
+  gap: 1vw;
+  text-align: left;
+}
+.text-block_1 h2,
+.text-block_1 p {
+  margin: 0;
+  padding: 0;
+  color: #363636;
+}
+.text-block_1 p {
+  margin-left: -1.1vw;
+  line-height: 130%;
+}
+.block-2_3 {
+  display: flex;
+  gap: 1.56vw;
+  margin-top: 1.56vw;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+}
+.text-block_2 {
+  background-color: #fdabca;
+  width: 19.11vw;
+  height: 16.56vw;
+  border-radius: 2.08vw;
+  border: 0.1vw solid #70d6d8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* по вертикали */
+  align-items: center; /* по горизонтали */
+  text-align: center;
+  gap: 1vw;
+  text-align: left;
+  margin-left: 1.56vw;
+}
+.text-block_2 h2,
+.text-block_2 p {
+  margin: 0;
+  padding: 0;
+  color: #363636;
+}
+.text-block_2 p {
+  margin-left: 2.7vw;
+  line-height: 130%;
+}
+.forest_anim {
+  width: 76.19vw;
+  height: 30.1vw;
+  border-radius: 2.08vw;
+  border: 0.156vw solid #fdabca;
+  background: #82dfe3;
+  position: relative;
+  overflow: hidden;
+}
+
+.trees-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.dragon-player {
+  position: absolute;
+  left: 1.2vw;
+  top: 4vw;
+  width: 8.8vw;
+  height: auto;
+  z-index: 6;
+  user-select: none;
+  cursor: grab;
+}
+.dragon-player.dragging {
+  cursor: grabbing;
+}
+
+.tree-obstacle {
+  position: absolute;
+  width: 4.8vw;
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  user-select: none;
+}
+
+.game-start--forest {
+  position: absolute;
+  left: 50%;
+  top: 8%;
+  transform: translateX(-50%);
+  z-index: 7;
+  padding: 0.7vw 1.2vw;
+  border-radius: 2.08vw;
+  background: #fff;
+  color: #000;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.hidden-btn {
+  display: none;
+}
+
+.reward-item {
+  display: block;
+  width: 8vw;
+  height: auto;
+}
+#okForestBtn {
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  color: #ffffff;
+}
+#restartForestBtn {
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* четвертый экран */
+.screen_4 {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 0;
+  overflow: hidden;
+  background-image: url("../images/pattern_4.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  flex-direction: row;
+  gap: 1.56vw;
+}
+.block-1_4 {
+  width: 35.78vw;
+  height: 55.5vw;
+  border-radius: 2.08vw;
+  border: 0.156vw solid #70d6d8;
+  background: #fdabca;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../images/pattern_6.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  margin-top: 1.56vw;
+  margin-left: 1.56vw;
+}
+.sage-top-label {
+  position: absolute;
+  top: 1.2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  min-width: 18vw;
+  max-width: 22vw;
+  padding: 0.7vw 1vw;
+  border-radius: 2.08vw;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  line-height: 130%;
+  white-space: nowrap;
+  margin-top: 5vw;
+}
+
+.sage-speech {
+  position: absolute;
+  right: 7vw;
+  top: 25vw;
+  z-index: 5;
+  width: 11.5vw;
+  min-height: 5vw;
+  padding: 0.9vw 1vw;
+  border-radius: 2.08vw;
+  background: #fff;
+  color: #000;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  line-height: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  box-sizing: border-box;
+}
+.sage-speech--pause {
+  width: 7vw;
+  height: 1vw;
+  padding: 0.3vw 0.3vw;
+}
+.sage-speech--final {
+  width: 13vw;
+  min-height: 4vw;
+  padding: 0.7vw 0.9vw;
+  white-space: nowrap;
+}
+
+.sage-speech.hidden {
+  display: none;
+}
+
+.sage-oldman {
+  position: absolute;
+  left: 5vw;
+  bottom: -16vw;
+  width: 25.57vw;
+  height: 46.145vw;
+  z-index: 4;
+  cursor: pointer;
+  user-select: none;
+}
+
+.reward-item {
+  display: block;
+  width: 8vw;
+  height: auto;
+}
+.block-2_4 {
+  margin-top: 1.56vw;
+  flex-direction: column;
+  gap: 1.56vw;
+}
+.control-section_1 {
+  width: 59.53vw;
+  height: 40.989vw;
+  border-radius: 2.08vw;
+  border: 0.156vw solid #fdabca;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  margin: 0 auto;
+}
+.maze-game {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.maze-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 34.375vw;
+  height: 33.85vw;
+  transform: translate(-50%, -50%);
+}
+
+.maze-dragon,
+.maze-castle {
+  position: absolute;
+  z-index: 5;
+  user-select: none;
+}
+
+.maze-dragon {
+  width: 17.76vw;
+  height: 15.729vw;
+  transition:
+    left 0.18s ease,
+    top 0.18s ease;
+}
+
+.maze-castle {
+  width: 16.04vw;
+  height: 16.197vw;
+}
+
+.game-start--maze {
+  position: absolute;
+  left: 50%;
+  top: 1.5%;
+  transform: translateX(-50%);
+  z-index: 7;
+  padding: 0.55vw 1vw;
+  border-radius: 2.08vw;
+  background: #fff;
+  color: #000;
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.control-section_2 {
+  width: 59.53vw;
+  height: 12.65vw;
+  border-radius: 2.08vw;
+  border: 0.156vw solid #70d6d8;
+  background: #fdabca;
+  overflow: hidden;
+  margin-top: 1.56vw;
+  flex-direction: row;
+  position: relative;
+  display: flex;
+}
+
+.maze-text-block {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-align: left;
+  padding: auto;
+  margin-top: 3vw;
+  margin-left: 5vw;
+}
+.maze-text-block h2,
+.maze-text-block p {
+  margin: 0;
+  color: #363636;
+}
+
+.maze-text-block h2 {
+  margin-bottom: 0.6vw;
+}
+
+.maze-text-block p {
+  line-height: 130%;
+}
+
+.maze-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5vw;
+  margin-top: 2vw;
+  margin-left: 7vw;
+}
+.maze-controls__row {
+  display: flex;
+  gap: 0.5vw;
+}
+
+.maze-btn {
+  width: 6.8vw;
+  height: 3.53vw;
+  border: 0.156vw solid #70d6d8;
+  background: #5b5b5b;
+  color: #70d6d8;
+  font-size: 2vw;
+  cursor: pointer;
+}
+#mazeModalText {
+  line-height: 130%;
+}
+
+.reward-item {
+  display: block;
+  width: 8vw;
+  height: auto;
+}
+#okMazeBtn {
+  font-family: "Inter";
+  font-size: 1.145vw;
+  font-weight: 500;
+  line-height: 130%;
+  color: #fff;
+}
+
+/* пятый экран*/
+.screen_5 {
+  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  gap: 0;
+  overflow: hidden;
+  background-image: url("../images/pattern_5.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  flex-direction: column;
+}
+
+.outfit-screen {
+  width: 97.03vw;
+  height: 45.572vw;
+  border: 0.1vw solid #fdabca;
+  border-radius: 1.156vw;
+  overflow: hidden;
+  margin-top: 1.56vw;
+  margin-left: 1.56vw;
+}
+
+.outfit-hint {
+  position: absolute;
+  left: 3vw;
+  top: 3vw;
+  z-index: 8;
+  width: 25.57vw;
+  height: 11.45vw;
+  padding: 1vw;
+  border-radius: 2.08vw;
+  border: 0.156vw solid #70d6d8;
+  background: #fdabca;
+  color: #363636;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* по вертикали */
+  align-items: center; /* по горизонтали */
+  text-align: center;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.outfit-hint p {
+  margin-left: 2vw;
+}
+
+.outfit-hint h2 {
+  margin-bottom: 0.5vw;
+  margin-left: -2vw;
+}
+
+.basket-area {
+  position: absolute;
+  left: 2vw;
+  bottom: 2.2vw;
+  width: 24vw;
+  height: 15.948vw;
+  z-index: 4;
+}
+.clothes {
+  width: 24vw;
+  height: 31.25vw;
+  background-color: #82dfe3;
+  margin-top: -15vw;
+  display: flex;
+  position: relative;
+  object-fit: contain;
+}
+.rewardContainer {
+  position: absolute;
+  width: 12.916vw;
+  height: 19.84vw;
+  z-index: 5;
+  margin-top: 10vw;
+  margin-left: 5vw;
+}
+.forestRewardContainer {
+  position: absolute;
+  width: 18.541vw;
+  height: 21.4vw;
+  z-index: 1;
+}
+.mazeRewardContainer {
+  position: absolute;
+  width: 18.54vw;
+  height: 31.718vw;
+  z-index: 3;
+  margin-top: 50vw;
+}
+.sageRewardContainer {
+  position: absolute;
+  width: 10.571vw;
+  height: 18.28vw;
+  z-index: 4;
+}
+.basket {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24vw;
+  height: 15.948vw;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.basket-preview {
+  position: absolute;
+  left: 2.2vw;
+  bottom: 3.5vw;
+  width: 7vw;
+  height: 4.5vw;
+  pointer-events: none;
+}
+
+.basket-preview img {
+  position: absolute;
+  object-fit: contain;
+}
+
+.mannequin-zone {
+  position: absolute;
+  left: 50%;
+  top: 4vw;
+  width: 10vw;
+  height: 35vw;
+  z-index: 3;
+}
+
+.mannequin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10vw;
+  height: auto;
+}
+
+.drop-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.placed-item {
+  position: absolute;
+  object-fit: contain;
+  z-index: 5;
+}
+
+.placed-item.hidden {
+  display: none;
+}
+
+.placed-item--blouse {
+  width: 8vw;
+  left: 1vw;
+  top: 1.5vw;
+}
+
+.placed-item--armor2 {
+  width: 7vw;
+  left: 1.5vw;
+  top: 7.2vw;
+}
+
+.placed-item--armor {
+  width: 6.8vw;
+  left: 1.6vw;
+  top: 2.2vw;
+}
+
+.placed-item--sword {
+  width: 1.8vw;
+  left: 7.2vw;
+  top: 9.2vw;
+  transform: rotate(20deg);
+}
+
+.spawn-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+}
+
+.draggable-item {
+  position: absolute;
+  cursor: grab;
+  user-select: none;
+  object-fit: contain;
+  z-index: 10;
+}
+
+.draggable-item.dragging {
+  cursor: grabbing;
+  z-index: 20;
+}
+
+.outfit-complete-label {
+  position: absolute;
+  left: 50%;
+  top: 1vw;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 0.7vw 1.2vw;
+  border-radius: 2vw;
+  background: #fff;
+  color: #000;
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+.pink-line-2 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fdabca;
+  width: 100%;
+  height: 4.8vw;
+  position: absolute;
+  bottom: 4.3vw;
+}
+.f1-3 {
+  font-family: "CCSpellcaster";
+}
+.f2-3 {
+  font-family: "Anticva";
+}
+.f3-3 {
+  font-family: "Calypso";
+}
+.f4-3 {
+  font-family: "Drakkar";
+}
+.f5-3 {
+  font-family: "Druzhok";
+}
+.f6-3 {
+  font-family: "Calypso";
+}
+.f7-3 {
+  font-family: "Helmswald";
+}
+.f8-3 {
+  display: inline-block;
+  width: 1.35vw;
+  height: 1.35vw;
+  background: url("../images/star2.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.marquee-text_1-2 {
+  margin-top: 0.7vw;
+  display: inline-block;
+  padding-right: 100%;
+  animation: marquee 15s linear infinite;
+}
+.f1-4 {
+  font-family: "Druzhok";
+}
+.f2-4 {
+  font-family: "Helmswald";
+}
+.f3-4 {
+  font-family: "DasikPush";
+}
+.f4-4 {
+  font-family: "Saint";
+}
+.f5-4 {
+  font-family: "Greybeard";
+}
+.f6-4 {
+  font-family: "Wolgadeutsche";
+}
+.f7-4 {
+  font-family: "Drakkar";
+}
+.f8-4 {
+  display: inline-block;
+  width: 1.35vw;
+  height: 1.35vw;
+  background: url("../images/star.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.second-line-2 {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  height: 4.8vw;
+  position: absolute;
+  bottom: 0;
+}
+.marquee-text_2-2 {
+  margin-top: 0.7vw;
+  display: inline-block;
+  padding-right: 100%;
+  animation: marquee2 15s linear infinite;
+}
+
+.footer {
+  width: 100%;
+  height: 13.28vw;
+  overflow: hidden;
+  background-image: url("../images/pattern_7.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 1vw;
+}
+.right {
+  background-image: url("../images/hse.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20.05vw;
+  height: 7.65vw;
+  margin-left: 40vw;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+}
+.left h5 {
+  margin-left: 7vw;
+}
