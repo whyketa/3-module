@@ -1070,6 +1070,12 @@ p {
   overflow: hidden;
   margin-top: 1.56vw;
   margin-left: 1.56vw;
+  margin-bottom: 1.56vw;
+}
+.outfit-stage {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .outfit-hint {
@@ -1107,45 +1113,81 @@ p {
   left: 2vw;
   bottom: 2.2vw;
   width: 24vw;
-  height: 15.948vw;
-  z-index: 4;
+  height: 16vw;
+  z-index: 6;
 }
+
 .clothes {
-  width: 24vw;
-  height: 31.25vw;
-  background-color: #82dfe3;
-  margin-top: -15vw;
-  display: flex;
-  position: relative;
-  object-fit: contain;
-}
-.rewardContainer {
   position: absolute;
-  width: 12.916vw;
-  height: 19.84vw;
+  left: 1.8vw;
+  bottom: 4.2vw;
+  width: 14vw;
+  height: 10vw;
   z-index: 5;
-  margin-top: 10vw;
-  margin-left: 5vw;
+  pointer-events: none;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
-.forestRewardContainer {
-  position: absolute;
-  width: 18.541vw;
-  height: 21.4vw;
-  z-index: 1;
+
+/* После клика на корзину контейнер скрывается */
+.clothes.is-hidden {
+  opacity: 0;
+  visibility: hidden;
 }
-.mazeRewardContainer {
+
+/* Все предметы внутри корзины - абсолютные, чтобы лежали кучкой */
+.basket-item {
   position: absolute;
-  width: 18.54vw;
-  height: 31.718vw;
-  z-index: 3;
-  margin-top: 50vw;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
-.sageRewardContainer {
-  position: absolute;
-  width: 10.571vw;
-  height: 18.28vw;
+
+/* Кучка внутри корзины */
+.basket-armor2 {
+  width: 5.5vw;
+  height: 7vw;
+  left: 4.4vw;
+  bottom: 0.8vw;
+  background-image: url("../images/armor2.svg");
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+.basket-armor {
+  width: 7vw;
+  height: 8vw;
+  left: 5.8vw;
+  bottom: 1.8vw;
+  background-image: url("../images/armor.svg");
+  transform: rotate(5deg);
   z-index: 4;
 }
+
+.basket-blouse {
+  width: 7vw;
+  height: 8.2vw;
+  left: 8vw;
+  bottom: 1.7vw;
+  background-image: url("../images/blouse.svg");
+  transform: rotate(8deg);
+  z-index: 5;
+}
+
+.basket-sword {
+  width: 4.5vw;
+  height: 7vw;
+  left: 9.5vw;
+  bottom: 0.8vw;
+  background-image: url("../images/sword.svg");
+  transform: rotate(25deg);
+  z-index: 3;
+}
+
 .basket {
   position: absolute;
   left: 0;
@@ -1177,6 +1219,7 @@ p {
   width: 10vw;
   height: 35vw;
   z-index: 3;
+  transform: translateX(-50%);
 }
 
 .mannequin {
@@ -1185,82 +1228,95 @@ p {
   top: 0;
   width: 10vw;
   height: auto;
-}
-
-.drop-layer {
-  position: absolute;
-  inset: 0;
   pointer-events: none;
 }
 
-.placed-item {
-  position: absolute;
-  object-fit: contain;
-  z-index: 5;
+.mannequin-zone.drop-hover {
+  outline: 0.15vw dashed #70d6d8;
+  outline-offset: 0.4vw;
+  border-radius: 1vw;
 }
 
-.placed-item.hidden {
-  display: none;
-}
-
-.placed-item--blouse {
-  width: 8vw;
-  left: 1vw;
-  top: 1.5vw;
-}
-
-.placed-item--armor2 {
-  width: 7vw;
-  left: 1.5vw;
-  top: 7.2vw;
-}
-
-.placed-item--armor {
-  width: 6.8vw;
-  left: 1.6vw;
-  top: 2.2vw;
-}
-
-.placed-item--sword {
-  width: 1.8vw;
-  left: 7.2vw;
-  top: 9.2vw;
-  transform: rotate(20deg);
-}
-
-.spawn-layer {
+/* Слой с большими предметами на сцене */
+.outfit-items-layer {
   position: absolute;
   inset: 0;
-  z-index: 6;
+  z-index: 7;
 }
 
-.draggable-item {
+/* Общий стиль предметов */
+.outfit-item {
   position: absolute;
   cursor: grab;
   user-select: none;
-  object-fit: contain;
-  z-index: 10;
+  touch-action: none;
+  opacity: 1;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    left 0.5s ease,
+    top 0.5s ease;
 }
 
-.draggable-item.dragging {
+.outfit-item.dragging {
   cursor: grabbing;
+  transition: none;
   z-index: 20;
 }
 
-.outfit-complete-label {
-  position: absolute;
-  left: 50%;
-  top: 1vw;
-  transform: translateX(-50%);
-  z-index: 20;
-  padding: 0.7vw 1.2vw;
-  border-radius: 2vw;
-  background: #fff;
-  color: #000;
-  font-size: 1vw;
-  font-weight: 500;
+/* Изначально скрыты */
+.outfit-item.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
+/* После открытия */
+.outfit-item.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Стартовые позиции на сцене — примерно как на твоём скрине */
+.item-armor2 {
+  width: 7.2vw;
+  left: 10vw;
+  top: 23vw;
+}
+
+.item-armor {
+  width: 12vw;
+  left: 33vw;
+  top: 5vw;
+}
+
+.item-blouse {
+  width: 10vw;
+  left: 49vw;
+  top: 5vw;
+}
+
+.item-sword {
+  width: 5vw;
+  left: 71vw;
+  top: 24vw;
+}
+
+/*подвал*/
+.footer {
+  width: 100%;
+  height: 20vw;
+  overflow: hidden;
+  background-image: url("../images/pattern_7.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 1vw;
+}
 .pink-line-2 {
   width: 100%;
   overflow: hidden;
@@ -1269,7 +1325,7 @@ p {
   width: 100%;
   height: 4.8vw;
   position: absolute;
-  bottom: 4.3vw;
+  top: 0;
 }
 .f1-3 {
   font-family: "CCSpellcaster";
@@ -1346,7 +1402,7 @@ p {
   width: 100%;
   height: 4.8vw;
   position: absolute;
-  bottom: 0;
+  top: 4vw;
 }
 .marquee-text_2-2 {
   margin-top: 0.7vw;
@@ -1355,19 +1411,6 @@ p {
   animation: marquee2 15s linear infinite;
 }
 
-.footer {
-  width: 100%;
-  height: 13.28vw;
-  overflow: hidden;
-  background-image: url("../images/pattern_7.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  padding: 1vw;
-}
 .right {
   background-image: url("../images/hse.svg");
   background-size: cover;
@@ -1376,12 +1419,15 @@ p {
   width: 20.05vw;
   height: 7.65vw;
   margin-left: 40vw;
+  margin-top: 10vw;
 }
 .left {
   display: flex;
   flex-direction: column;
   gap: 3vw;
+  margin-left: 3vw;
 }
 .left h5 {
   margin-left: 7vw;
+  margin-top: 7vw;
 }

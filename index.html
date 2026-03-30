@@ -352,10 +352,10 @@
 
           <div class="basket-area">
             <div class="clothes">
-              <div id="rewardContainer"></div>
-              <div id="forestRewardContainer"></div>
-              <div id="mazeRewardContainer"></div>
-              <div id="sageRewardContainer"></div>
+              <div id="rewardContainer" class="basket-item basket-armor2"></div>
+              <div id="forestRewardContainer" class="basket-item basket-armor"></div>
+              <div id="mazeRewardContainer" class="basket-item basket-blouse"></div>
+              <div id="sageRewardContainer" class="basket-item basket-sword"></div>
             </div>
             <img
               src="../images/basket.svg"
@@ -374,34 +374,44 @@
               id="mannequin"
             />
 
-            <div class="drop-layer" id="dropLayer">
-              <img
-                class="placed-item placed-item--blouse hidden"
-                id="placedBlouse"
-                alt=""
-              />
-              <img
-                class="placed-item placed-item--armor2 hidden"
-                id="placedArmor2"
-                alt=""
-              />
-              <img
-                class="placed-item placed-item--armor hidden"
-                id="placedArmor"
-                alt=""
-              />
-              <img
-                class="placed-item placed-item--sword hidden"
-                id="placedSword"
-                alt=""
-              />
-            </div>
           </div>
+          <div class="outfit-items-layer" id="outfitItemsLayer">
+        <img
+          src="../images/armor2.svg"
+          alt="Низ"
+          class="outfit-item item-armor2 hidden"
+          id="itemArmor2"
+          draggable="false"
+        />
+        <img
+          src="../images/armor.svg"
+          alt="Броня"
+          class="outfit-item item-armor hidden"
+          id="itemArmor"
+          draggable="false"
+        />
+        <img
+          src="../images/blouse.svg"
+          alt="Блуза"
+          class="outfit-item item-blouse hidden"
+          id="itemBlouse"
+          draggable="false"
+        />
+        <img
+          src="../images/sword.svg"
+          alt="Меч"
+          class="outfit-item item-sword hidden"
+          id="itemSword"
+          draggable="false"
+        />
+      </div>
 
           <div class="spawn-layer" id="spawnLayer"></div>
         </div>
       </div>
-      <div class="pink-line-2">
+    </section>
+    <section class="footer">
+       <div class="pink-line-2">
         <h3 class="marquee-text_1-2">
           <span class="word f1-3"> выполни </span>
           <span class="word f2-3">все задания </span>
@@ -473,8 +483,6 @@
           <span class="word f8-4"> </span>
         </h4>
       </div>
-    </section>
-    <section class="footer">
       <div class="left">
         <h5>код и дизайн</h5>
         <h6>Дарина Ломухина</h6>

@@ -827,17 +827,23 @@ function cellToPosition(col, row) {
   };
 }
 
+const MAZE_BASE_WIDTH = 660;
+const MAZE_BASE_HEIGHT = 650;
+
 function placeMazeObjects() {
   if (!mazeGame || !mazeDragon || !mazeCastle) return;
 
   const dragonPos = cellToPosition(dragonCell.col, dragonCell.row);
   const castlePos = cellToPosition(castleCell.col, castleCell.row);
 
-  mazeDragon.style.left = `${dragonPos.left - 160}px`;
-  mazeDragon.style.top = `${dragonPos.top - 110}px`;
+  const scaleX = mazeGame.offsetWidth / MAZE_BASE_WIDTH;
+  const scaleY = mazeGame.offsetHeight / MAZE_BASE_HEIGHT;
 
-  mazeCastle.style.left = `${castlePos.left - 260}px`;
-  mazeCastle.style.top = `${castlePos.top - 160}px`;
+  mazeDragon.style.left = `${dragonPos.left - 100 * scaleX}px`;
+  mazeDragon.style.top = `${dragonPos.top - 90 * scaleY}px`;
+
+  mazeCastle.style.left = `${castlePos.left - 170 * scaleX}px`;
+  mazeCastle.style.top = `${castlePos.top - 160 * scaleY}px`;
 }
 
 function resetMazeGameState() {
@@ -1102,212 +1108,36 @@ window.addEventListener("beforeunload", () => {
 });
 
 //манекен и корзина
-const basket = document.getElementById("basket");
-const basketPreview = document.getElementById("basketPreview");
-const spawnLayer = document.getElementById("spawnLayer");
-const mannequinZone = document.getElementById("mannequinZone");
+ if (isOverMannequin(element, mannequinZone)) {
+        snapToMannequin(element, mannequinLeft, mannequinTop);
+      }
+    });
 
-const placedBlouse = document.getElementById("placedBlouse");
-const placedArmor2 = document.getElementById("placedArmor2");
-const placedArmor = document.getElementById("placedArmor");
-const placedSword = document.getElementById("placedSword");
-
-let basketOpened = false;
-let activeDragItem = null;
-let dragOffsetX = 0;
-let dragOffsetY = 0;
-let outfitCompleted = false;
-
-const earnedItems = [];
-
-if (localStorage.getItem("game1Passed") === "true") {
-  earnedItems.push({ key: "armor", src: "./images/armor.svg" });
-}
-
-if (localStorage.getItem("forestGamePassed") === "true") {
-  earnedItems.push({ key: "blouse", src: "./images/blouse.svg" });
-}
-
-if (localStorage.getItem("mazeGamePassed") === "true") {
-  earnedItems.push({ key: "armor2", src: "./images/armor2.svg" });
-}
-
-if (localStorage.getItem("sageWisdomPassed") === "true") {
-  earnedItems.push({ key: "sword", src: "./images/sword.svg" });
-}
-
-// превью предметов внутри корзины
-function renderBasketPreview() {
-  if (!basketPreview) return;
-
-  basketPreview.innerHTML = "";
-
-  earnedItems.forEach((item) => {
-    const img = document.createElement("img");
-    img.src = item.src;
-    img.alt = item.key;
-
-    if (item.key === "blouse") {
-      img.style.width = "3.2vw";
-      img.style.left = "0.2vw";
-      img.style.bottom = "1.2vw";
-    }
-
-    if (item.key === "armor") {
-      img.style.width = "2.6vw";
-      img.style.left = "2.7vw";
-      img.style.bottom = "1vw";
-    }
-
-    if (item.key === "armor2") {
-      img.style.width = "3.2vw";
-      img.style.left = "4.3vw";
-      img.style.bottom = "0.9vw";
-    }
-
-    if (item.key === "sword") {
-      img.style.width = "1vw";
-      img.style.left = "5.8vw";
-      img.style.bottom = "0.7vw";
-      img.style.transform = "rotate(25deg)";
-    }
-
-    basketPreview.appendChild(img);
-  });
-}
-
-function spawnItemsFromBasket() {
-  if (!spawnLayer) return;
-
-  basketOpened = true;
-
-  const positions = {
-    armor2: { left: 21.8, top: 2.5, width: 5.8 },
-    blouse: { left: 25.5, top: 2.2, width: 5.2 },
-    sword: { left: 24.5, top: 7.8, width: 1.3 },
-    armor: { left: 27.2, top: 8.3, width: 3.2 },
-  };
-
-  const order = ["armor2", "blouse", "sword", "armor"];
-
-  order.forEach((key) => {
-    const item = earnedItems.find((x) => x.key === key);
-    if (!item) return;
-
-    const img = document.createElement("img");
-    img.src = item.src;
-    img.alt = item.key;
-    img.dataset.itemKey = item.key;
-    img.className = "draggable-item";
-
-    img.style.left = `${positions[key].left}vw`;
-    img.style.top = `${positions[key].top}vw`;
-    img.style.width = `${positions[key].width}vw`;
-
-    img.addEventListener("mousedown", startDragItem);
-    spawnLayer.appendChild(img);
-  });
-}
-
-function startDragItem(e) {
-  if (outfitCompleted) return;
-
-  activeDragItem = e.currentTarget;
-  activeDragItem.classList.add("dragging");
-
-  const rect = activeDragItem.getBoundingClientRect();
-  dragOffsetX = e.clientX - rect.left;
-  dragOffsetY = e.clientY - rect.top;
-}
-
-function moveDragItem(e) {
-  if (!activeDragItem || !spawnLayer) return;
-
-  const stageRect = spawnLayer.getBoundingClientRect();
-
-  const left = e.clientX - stageRect.left - dragOffsetX;
-  const top = e.clientY - stageRect.top - dragOffsetY;
-
-  activeDragItem.style.left = `${left}px`;
-  activeDragItem.style.top = `${top}px`;
-}
-
-function stopDragItem() {
-  if (!activeDragItem) return;
-
-  activeDragItem.classList.remove("dragging");
-
-  const itemKey = activeDragItem.dataset.itemKey;
-  const itemRect = activeDragItem.getBoundingClientRect();
-  const mannequinRect = mannequinZone.getBoundingClientRect();
-
-  const intersects = !(
-    itemRect.right < mannequinRect.left ||
-    itemRect.left > mannequinRect.right ||
-    itemRect.bottom < mannequinRect.top ||
-    itemRect.top > mannequinRect.bottom
-  );
-
-  if (intersects) {
-    placeOnMannequin(itemKey);
-    activeDragItem.remove();
-    checkOutfitComplete();
+    element.addEventListener("pointercancel", () => {
+      isDragging = false;
+      element.classList.remove("dragging");
+      mannequinZone.classList.remove("drop-hover");
+    });
   }
 
-  activeDragItem = null;
-}
+  function isOverMannequin(item, target) {
+    const itemRect = item.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
 
-function placeOnMannequin(itemKey) {
-  if (itemKey === "blouse") {
-    placedBlouse.src = "./images/blouse.svg";
-    placedBlouse.classList.remove("hidden");
+    const itemCenterX = itemRect.left + itemRect.width / 2;
+    const itemCenterY = itemRect.top + itemRect.height / 2;
+
+    return (
+      itemCenterX > targetRect.left &&
+      itemCenterX < targetRect.right &&
+      itemCenterY > targetRect.top &&
+      itemCenterY < targetRect.bottom
+    );
   }
 
-  if (itemKey === "armor2") {
-    placedArmor2.src = "./images/armor2.svg";
-    placedArmor2.classList.remove("hidden");
+  function snapToMannequin(element, left, top) {
+    element.style.left = left;
+    element.style.top = top;
   }
-
-  if (itemKey === "armor") {
-    placedArmor.src = "./images/armor.svg";
-    placedArmor.classList.remove("hidden");
-  }
-
-  if (itemKey === "sword") {
-    placedSword.src = "./images/sword.svg";
-    placedSword.classList.remove("hidden");
-  }
-}
-
-function checkOutfitComplete() {
-  const blouseReady = !placedBlouse.classList.contains("hidden");
-  const armor2Ready = !placedArmor2.classList.contains("hidden");
-  const armorReady = !placedArmor.classList.contains("hidden");
-  const swordReady = !placedSword.classList.contains("hidden");
-
-  if (blouseReady && armor2Ready && armorReady && swordReady) {
-    finishOutfitGame();
-  }
-}
-
-function finishOutfitGame() {
-  if (outfitCompleted) return;
-
-  outfitCompleted = true;
-
-  const label = document.createElement("div");
-  label.className = "outfit-complete-label";
-  label.textContent = "Образ собран";
-  spawnLayer.appendChild(label);
-
-  localStorage.setItem("outfitCompleted", "true");
-}
-
-if (basket) {
-  basket.addEventListener("click", spawnItemsFromBasket);
-}
-
-document.addEventListener("mousemove", moveDragItem);
-document.addEventListener("mouseup", stopDragItem);
-
-renderBasketPreview();
+});
+</script>
