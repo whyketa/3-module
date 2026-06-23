@@ -45,7 +45,7 @@ window.onload = function () {
 // карта и элементы
 const itemsData = {
   mountains: {
-    image: "../images/sword.svg",
+    image: "./images/sword.svg",
     name: "меч короля",
     owner: "принцу",
     price: "10 шоп-коинов",
@@ -53,7 +53,7 @@ const itemsData = {
   },
 
   hut: {
-    image: "../images/armor.svg",
+    image: "./images/armor.svg",
     name: "медные доспехи",
     owner: "рыцарю",
     price: "7 шоп-коинов",
@@ -61,7 +61,7 @@ const itemsData = {
   },
 
   forest: {
-    image: "../images/blouse.svg",
+    image: "./images/blouse.svg",
     name: "элегантная блуза",
     owner: "королеве",
     price: "15 шоп-коинов",
@@ -69,7 +69,7 @@ const itemsData = {
   },
 
   castle: {
-    image: "../images/armor2.svg",
+    image: "./images/armor2.svg",
     name: "штаны с доспехами",
     owner: "рыцарю",
     price: "50 шоп-коинов",
@@ -123,11 +123,11 @@ const okGameBtn = document.getElementById("okGameBtn");
 const TOTAL_ITEMS = 15;
 
 const itemImages = [
-  "../images/falling-book.svg",
-  "../images/falling-crown.svg",
-  "../images/falling-guitar.svg",
-  "../images/falling-map.svg",
-  "../images/falling-sword.svg",
+  "./images/falling-book.svg",
+  "./images/falling-crown.svg",
+  "./images/falling-guitar.svg",
+  "./images/falling-map.svg",
+  "./images/falling-sword.svg",
 ];
 
 let gameStarted = false;
@@ -329,7 +329,7 @@ function spawnRewardItem() {
   if (rewardContainer.querySelector(".reward-item")) return;
 
   const reward = document.createElement("img");
-  reward.src = "../images/sword.svg";
+  reward.src = "./images/sword.svg";
   reward.alt = "Новый предмет";
   reward.className = "reward-item";
   rewardContainer.appendChild(reward);
@@ -356,9 +356,9 @@ const forestRewardContainer = document.getElementById("forestRewardContainer");
 const TOTAL_TREES = 15;
 
 const treeImages = [
-  "../images/tree_1.svg",
-  "../images/tree_2.svg",
-  "../images/tree_3.svg",
+  "./images/tree_1.svg",
+  "./images/tree_2.svg",
+  "./images/tree_3.svg",
 ];
 
 let forestStarted = false;
@@ -435,7 +435,7 @@ function spawnForestRewardItem() {
   if (forestRewardContainer.querySelector(".reward-item")) return;
 
   const reward = document.createElement("img");
-  reward.src = "../images/blouse.svg";
+  reward.src = "./images/blouse.svg";
   reward.alt = "Новый предмет";
   reward.className = "reward-item";
   forestRewardContainer.appendChild(reward);
@@ -842,7 +842,7 @@ function spawnMazeRewardItem() {
   if (mazeRewardContainer.querySelector(".reward-item")) return;
 
   const reward = document.createElement("img");
-  reward.src = "../images/armor2.svg";
+  reward.src = "./images/armor2.svg";
   reward.alt = "Новый предмет";
   reward.className = "reward-item";
   mazeRewardContainer.appendChild(reward);
@@ -1112,7 +1112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (basketOpened) return;
     basketOpened = true;
 
-    // скрываем кучку в корзине
     clothesPile.classList.add("is-hidden");
 
     sceneItems.forEach((item, index) => {
